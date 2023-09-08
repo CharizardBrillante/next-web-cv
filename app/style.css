@@ -1,0 +1,13 @@
+body {
+    background: #000;
+    
+}
+*{
+    scrollbar-width: none;  /* Firefox */
+}
+*::-webkit-scrollbar {
+    display: none;
+}
+.main-layout {
+    padding: 0 auto;
+}

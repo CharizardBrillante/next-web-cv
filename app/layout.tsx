@@ -1,55 +1,60 @@
 //@ts-nocheck
 "use client"
-import { Dock } from "@/components/navbar/Dock";
-import { DockCard } from "@/components/navbar/DockCard";
-import { Card } from "@/components/navbar/Card";
-import { DockDivider } from "@/components/navbar/DockDivider";
-import Particles from "react-tsparticles";
-import { loadFull } from "tsparticles";
-import { particlesOptions } from "@/components/Particles/particlesConfig";
-import { Engine } from "tsparticles-engine";
+
+import Background from "@/components/Particles"
+import Navbar from "@/components/navbar"
+import './style.css'
+import { useRouter } from "next/navigation"
+import { motion, useAnimationControls } from "framer-motion";
+import { Suspense, useCallback } from "react"
+import { Inter } from "next/font/google";
 
 export const metadata = {
     title: "Daniele Terracciano - Web CV",
     description: "Daniele Terracciano resume"
 }
 
-export default function RootLayout({
-    children,
-    }: {
-        children: React.ReactNode
-    }) {
-        const particlesInit = (engine : Engine) => {
-            loadFull(engine);
-        };
-        const GRADIENTS = [
-            'https://products.ls.graphics/mesh-gradients/images/03.-Snowy-Mint_1-p-130x130q80.jpeg',
-            'https://products.ls.graphics/mesh-gradients/images/04.-Hopbush_1-p-130x130q80.jpeg',
-            'https://products.ls.graphics/mesh-gradients/images/06.-Wisteria-p-130x130q80.jpeg',
-            'https://products.ls.graphics/mesh-gradients/images/09.-Light-Sky-Blue-p-130x130q80.jpeg',
-            'https://products.ls.graphics/mesh-gradients/images/12.-Tumbleweed-p-130x130q80.jpeg',
-            'https://products.ls.graphics/mesh-gradients/images/15.-Perfume_1-p-130x130q80.jpeg',
-            null,
-            'https://products.ls.graphics/mesh-gradients/images/36.-Pale-Chestnut-p-130x130q80.jpeg',
-        ]
-        return (
-        <html lang="en">
-            <body>
-            <Particles init={particlesInit} options={particlesOptions} />
 
+const inter = Inter({ subsets: ['latin'] })
+
+const RootLayout = ({children,}: {children: React.ReactNode}) => {
+    const router = useRouter();
+    const controls = useAnimationControls();
+
+    const onRoute = useCallback((href: string) => async () => {
+        await router.prefetch(href)
+        await controls.start('exit')
+        await router.push(href)
+        await controls.set('hidden')
+        await controls.start('enter')
+    }, [router, controls])
+
+    return (
+    <html lang="en">
+        <body>
+        <div className={inter.className}>
+        <div className="main-layout">
+            <Suspense fallback={<p style={{color: 'white'}}> Ciao</p>} >
+            <motion.main
+                animate={controls}
+                variants={{
+                    hidden: { opacity: .3, x: "-100vw", y: 0 },
+                    enter: { opacity: 1, x: 0, y: 0 },
+                    exit: { opacity: .3, x: "100vw", y: 0 },
+                }}
+                transition={{ type: 'keyframes', duration: .6 }}
+            >
                 {children}
-            <Dock>
-                {GRADIENTS.map((src, index) =>
-                src ? (
-                    <DockCard key={src}>
-                    <Card src={src} />
-                    </DockCard>
-                ) : (
-                    <DockDivider key={index} />
-                )
-                )}
-            </Dock>
-            </body>
-        </html>
-        )
-    }
+                
+            </motion.main>
+            </Suspense>
+            <Background/>
+            <Navbar onRoute={onRoute}/>
+        </div>
+        </div>
+        </body>
+    </html>
+    )
+}
+
+export default RootLayout;
