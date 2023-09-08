@@ -10,8 +10,8 @@ import { particlesOptions } from "@/components/Particles/particlesConfig";
 import { Engine } from "tsparticles-engine";
 
 export const metadata = {
-    title: "meta title",
-    description: "meta descrizione"
+    title: "Daniele Terracciano - Web CV",
+    description: "Daniele Terracciano resume"
 }
 
 export default function RootLayout({
