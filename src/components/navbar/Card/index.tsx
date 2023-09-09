@@ -3,7 +3,7 @@ import * as React from 'react'
 
 import styles from './styles.module.css';
 import Link from 'next/link';
-import { RiHomeFill, RiFolderFill, RiBookOpenFill, RiBriefcase4Fill, RiBookmark3Fill } from 'react-icons/ri';
+import { RiHomeFill, RiFolderFill, RiBookOpenFill, RiBriefcase4Fill, RiBookmark3Fill, RiBarChartFill } from 'react-icons/ri';
 
 interface CardProps {
     src: string
@@ -19,8 +19,9 @@ const ChoseIcon = ({index} : IconProps) => {
     const icons = [
         <RiBookOpenFill size={30} className={styles["nav-icon"]} key={0}/>,
         <RiBriefcase4Fill size={30} className={styles["nav-icon"]} key={1}/>,
-        <RiFolderFill size={30} className={styles["nav-icon"]} key={2}/>,
-        <RiBookmark3Fill size={30} className={styles["nav-icon"]} key={3}/>,
+        <RiBarChartFill size={30} className={styles["nav-icon"]} key={2}/>,
+        <RiFolderFill size={30} className={styles["nav-icon"]} key={3}/>,
+        <RiBookmark3Fill size={30} className={styles["nav-icon"]} key={4}/>,
         null,
         <RiHomeFill size={30} className={styles["nav-icon"]} key={5}/>,
     ]

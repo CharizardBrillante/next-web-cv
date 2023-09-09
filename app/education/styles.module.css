@@ -1,3 +1,40 @@
-.container {
-    color: #dedede;
+.title {
+    padding: 0;
+    margin: 0;
+    font-size: 2rem;
+}
+
+.education-container {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    gap: 1vw;
+}
+
+.education-col {
+    padding: 1vh 1vw 0vh 1vw;
+}
+
+.img-container {
+    display: flex;
+    justify-content: center;
+}
+.education-img {
+    width: 66%;
+}
+
+
+
+@media screen and (min-width: 1200px) {
+    .container {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        gap: 1vw;
+    }
+
+    .education-img {
+        width: 15vw;
+    }
+    
 }

@@ -1,0 +1,22 @@
+.container {
+    color: rgba(0, 0, 0, 0.9);
+    background-color: rgba(224, 224, 224, 0.8);
+    width: 50vw;
+    padding: 1vh 2vw 1vh 2vw;
+    margin: 0 0 5vh 0;
+}
+
+.title {
+    color: rgba(0, 0, 0, 0.9);
+    background-color: rgba(224, 224, 224, 0.8);
+    width: 50vw;
+    padding: 1vh 2vw 1vh 2vw;
+    margin: 0 0 5vh 0;
+}
+
+@media screen and (min-width: 1200px) {
+    .container {
+        width: 20vw;
+
+    }
+}

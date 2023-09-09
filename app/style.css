@@ -4,10 +4,54 @@ body {
 }
 *{
     scrollbar-width: none;  /* Firefox */
+
 }
 *::-webkit-scrollbar {
     display: none;
 }
+
+h2 {
+    font-size: 2rem;
+    padding: 0;
+    margin: 0;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+p {
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin: 0.4rem 0rem;
+
+}
 .main-layout {
-    padding: 0 auto;
+    width: 50vw;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+    padding-left: 25vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.bg-gradient {
+    background-image: url('../src/images/bg-gradient.jpg');
+    background-size: cover;
+    opacity: 0.6;
+    border-radius: 5px;
+    
+}
+.animated-bg {
+    background-color: rgba(219,117,136, .5);
+    animation: changing-bg-color 20s infinite;
+}
+@keyframes changing-bg-color {
+    0% {background-color: rgba(219,117,136, .5);}
+    25% {background-color: rgba(181,80,138, .5);}
+    50% {background-color: rgba(211,153,210, .5);}
+    75% {background-color: rgba(231,218,229, .5);}
+    100% {background-color: rgba(219,117,136, .5);}
 }
