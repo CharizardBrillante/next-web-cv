@@ -138,7 +138,7 @@ const Education : NextPage = () => {
 
             <PageCard type="">
                 <Row className={styles["education-container"]}>
-                    <Col className={styles["education-col"]}>
+                    <Col className={styles["education-col-img"]}>
                         <a 
                             href="https://www.udemy.com/" 
                             target="_blank" 

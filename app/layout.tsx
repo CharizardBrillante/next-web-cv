@@ -33,24 +33,26 @@ const RootLayout = ({children,}: {children: React.ReactNode}) => {
     <html lang="en">
         <body>
         <div className={inter.className}>
-        <div className="main-layout">
-            <Suspense fallback={<p style={{color: 'white'}}> Ciao</p>} >
-            <motion.main
-                animate={controls}
-                variants={{
-                    hidden: { opacity: .3, x: "-100vw", y: 0 },
-                    enter: { opacity: 1, x: 0, y: 0 },
-                    exit: { opacity: .3, x: "100vw", y: 0 },
-                }}
-                transition={{ type: 'keyframes', duration: .6 }}
-            >
-                {children}
-                
-            </motion.main>
-            </Suspense>
+            <div className="main-layout">
+                <Suspense fallback={<p style={{color: 'white'}}> Ciao</p>} >
+                <motion.main
+                    animate={controls}
+                    variants={{
+                        hidden: { opacity: .3, x: "-100vw", y: 0 },
+                        enter: { opacity: 1, x: 0, y: 0 },
+                        exit: { opacity: .3, x: "100vw", y: 0 },
+                    }}
+                    transition={{ type: 'keyframes', duration: .6 }}
+                >
+                    {children}
+                </motion.main>
+                </Suspense>
+            </div>
+
+            <div className="nav-context">
+                <Navbar onRoute={onRoute}/>
+            </div>
             <Background/>
-            <Navbar onRoute={onRoute}/>
-        </div>
         </div>
         </body>
     </html>

@@ -1,0 +1,29 @@
+.skill-container {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    gap: 1vw;
+    height: 90%
+}
+
+.desc {
+    border-top: 1px solid black;
+    padding-top: 1em;
+    margin-top: 1em;
+}
+
+.logo {
+    width: 40px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+@media screen and (min-width: 1200px) {
+    .container {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        gap: 1vw;
+    }
+
+}

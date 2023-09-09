@@ -18,18 +18,53 @@ h2 {
 
 h3 {
     font-size: 1.5rem;
+    margin-bottom: 0.5em;
 }
 
 p {
     font-weight: 600;
     font-size: 1.1rem;
     margin: 0.4rem 0rem;
-
 }
+
+ul {
+    padding-inline-start: 0px;
+    border-top: 1px solid black;
+    padding-top: .5em;
+}
+li {
+    font-weight: 600;
+    font-size: 1.1rem;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin-top: .5em;
+}
+
+li>img {
+    width: 50px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: 0.4s;
+}
+a:visited {
+    color: inherit;
+}
+a:hover {
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+}
+
+
 .main-layout {
     width: 50vw;
+    padding-bottom: 10vh;
     padding-top: 5vh;
-    padding-bottom: 5vh;
+    overflow-y:auto;
     padding-left: 25vw;
     display: flex;
     justify-content: center;
@@ -37,10 +72,15 @@ p {
     
 }
 
+.nav-context {
+    height: 10vh;
+    position: absolute;
+    bottom: 0;
+}
 .bg-gradient {
     background-image: url('../src/images/bg-gradient.jpg');
     background-size: cover;
-    opacity: 0.6;
+    opacity: 0.7;
     border-radius: 5px;
     
 }
@@ -54,4 +94,11 @@ p {
     50% {background-color: rgba(211,153,210, .5);}
     75% {background-color: rgba(231,218,229, .5);}
     100% {background-color: rgba(219,117,136, .5);}
+}
+
+@media screen and (max-width: 768px) {
+    .main-layout {
+        width: 80vw;
+        padding-left: 10vw;
+    }
 }
